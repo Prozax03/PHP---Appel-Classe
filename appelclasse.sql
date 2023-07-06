@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 04 juil. 2023 à 21:33
+-- Généré le : jeu. 06 juil. 2023 à 20:19
 -- Version du serveur : 10.4.28-MariaDB
 -- Version de PHP : 8.2.4
 
@@ -77,7 +77,8 @@ CREATE TABLE `eleves` (
   `idSexe` int(11) NOT NULL,
   `idClasse` int(11) NOT NULL,
   `dateEntree` date NOT NULL,
-  `dateSortie` date NOT NULL
+  `dateSortie` date NOT NULL,
+  `dateNaissance` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------

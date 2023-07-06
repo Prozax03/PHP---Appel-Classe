@@ -47,7 +47,7 @@
                                 echo "<div class=\"card card-body spacing3"; echo ($aam->getestPresent() == 1)?(" bgPresent"):(($aam->getestPresent() == 0)?(" bgAbsent"):("")); echo "\">
                                 <div class=\"row\">
                                     <div class=\"col-md-9\" style=\"padding-top: 6px\">
-                                        <span>".strtoupper($aam->getEleve()->getNom())." ".ucfirst(strtolower($aam->getEleve()->getPrenom()))."</span>
+                                        <span>"; echo (substr($aam->getEleve()->getDateNais(), 5) == substr($dateJour, 5))?("<span style='padding-right: 10px;'><i class='fa-solid fa-cake-candles'></i></span>"):(""); echo strtoupper($aam->getEleve()->getNom())." ".ucfirst(strtolower($aam->getEleve()->getPrenom()))."</span>
                                     </div>
                                     <div class=\"col-md-3\" style=\"text-align: right;\">
                                         <button type=\"button\" class=\"btn btn-success btn-circle spacingL10\" onclick=\"changePresence(1, this)\" style=\"display: "; echo ($aam->getestPresent() == 1)?("none"):("inline-block"); echo ";\"><i class=\"fa-solid fa-user-check\"></i></button>
@@ -93,7 +93,7 @@
                                 echo "<div class=\"card card-body spacing3"; echo ($apm->getestPresent() == 1)?(" bgPresent"):(($apm->getestPresent() == 0)?(" bgAbsent"):("")); echo "\">
                                 <div class=\"row\">
                                     <div class=\"col-md-9\" style=\"padding-top: 6px\">
-                                        <span>".strtoupper($apm->getEleve()->getNom())." ".ucfirst(strtolower($apm->getEleve()->getPrenom()))."</span>
+                                        <span>"; echo (substr($apm->getEleve()->getDateNais(), 5) == substr($dateJour, 5))?("<span style='padding-right: 10px;'><i class='fa-solid fa-cake-candles'></i></span>"):(""); echo strtoupper($apm->getEleve()->getNom())." ".ucfirst(strtolower($apm->getEleve()->getPrenom()))."</span>
                                     </div>
                                     <div class=\"col-md-3\" style=\"text-align: right;\">
                                         <button type=\"button\" class=\"btn btn-success btn-circle spacingL10\" onclick=\"changePresence(1, this)\" style=\"display: "; echo ($apm->getestPresent() == 1)?("none"):("inline-block"); echo ";\"><i class=\"fa-solid fa-user-check\"></i></button>

@@ -2,7 +2,7 @@
     require_once "view/header.php";
 ?>
 	<br>
-	<h1 class="center">Gestion des classes</h1>
+	<h1 class="center">Gestion des élèves</h1>
 	<br>
 	<div style='text-align: center'><a href='index.php?action=formaddeleves' class="btn btn-eleve">Ajouter un(e) élève</a></div>
 	<br>
@@ -12,6 +12,7 @@
 				<thead>
 				<tr>
 					<th>NOM Prénom</th>
+					<th>Date de naissance</th>
 					<th>Sexe</th>
 					<th>Classe</th>
 					<th>Date d'entrée</th>

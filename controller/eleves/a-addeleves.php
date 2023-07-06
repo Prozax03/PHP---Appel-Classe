@@ -16,7 +16,9 @@
 	$dateEntree = $_POST["dateEntree"];
 	$dateSortie = $_POST["dateSortie"];
 
-	$monObjet = new eleves(0, $nom, $prenom, $sexe, $classe, $dateEntree, $dateSortie);
+	$dateNais = $_POST["dateNais"];
+
+	$monObjet = new eleves(0, $nom, $prenom, $sexe, $classe, $dateEntree, $dateSortie, $dateNais);
 	$monObjet->create();
 
 	header('Location: index.php?action=alleleves');

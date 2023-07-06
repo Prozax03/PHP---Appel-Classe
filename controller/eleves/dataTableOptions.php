@@ -1,8 +1,9 @@
 <?php
 
-echo "'order': [[ 2, 'asc' ]],
+echo "'order': [[ 3, 'asc' ]],
         'aoColumns': [
             { mData: 'NOMPRENOM' } ,
+            { mData: 'DATENAIS' },
             { mData: 'SEXE' },
             { mData: 'CLASSE' },
             { mData: 'DATEENTREE' },

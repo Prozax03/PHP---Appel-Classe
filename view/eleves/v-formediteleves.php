@@ -21,6 +21,10 @@
 						<label for="prenom">Prénom</label>
 					</div>
 					<div class="form-floating mb-3">
+						<input type="date" class="form-control" name="dateNais" id="dateNais" value="<?= $monObjet->getDateNais() ?>" required>
+						<label for="dateNais">Date de naissance</label>
+					</div>
+					<div class="form-floating mb-3">
 						<select class="form-control" name="sexe" id="sexe" onchange="changeImage(this)" required>
 						<?php
 							$i=0;

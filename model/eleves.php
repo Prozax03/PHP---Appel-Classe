@@ -10,9 +10,10 @@ class eleves
     private $classe;
     private $dateEntree;
     private $dateSortie;
+    private $dateNais;
 
 
-    public function __construct($id="", $nom="", $prenom="", $sexe="", $classe = "", $dateEntree = "", $dateSortie = "")
+    public function __construct($id="", $nom="", $prenom="", $sexe="", $classe = "", $dateEntree = "", $dateSortie = "", $dateNais = "")
     {
         $this->id = $id;
         $this->nom = $nom;
@@ -21,13 +22,14 @@ class eleves
         $this->classe = $classe;
         $this->dateEntree = $dateEntree;
         $this->dateSortie = $dateSortie;
+        $this->dateNais = $dateNais;
     }
 
     public function create(){
         require "db.php";
 
-        $req = $db->prepare("INSERT INTO eleves VALUES(null, ?, ?, ?, ?, ?, ?)");
-        $req->execute(array($this->nom, $this->prenom, $this->sexe->getId(), $this->classe->getId(), $this->dateEntree, $this->dateSortie));
+        $req = $db->prepare("INSERT INTO eleves VALUES(null, ?, ?, ?, ?, ?, ?, ?)");
+        $req->execute(array($this->nom, $this->prenom, $this->sexe->getId(), $this->classe->getId(), $this->dateEntree, $this->dateSortie, $this->dateNais));
     }
 
     public function retrieve($id){
@@ -42,6 +44,7 @@ class eleves
         $this->prenom = $result['prenom'];
         $this->dateEntree = $result['dateEntree'];
         $this->dateSortie = $result['dateSortie'];
+        $this->dateNais = $result['dateNaissance'];
 
         require_once "sexes.php";
         $leSexe = new sexes();
@@ -57,8 +60,8 @@ class eleves
     public function update(){
         require "db.php";
 
-        $req = $db->prepare("UPDATE eleves SET nom = ?, prenom = ?, idSexe = ?, idClasse = ?, dateEntree = ?, dateSortie = ? WHERE id = ?");
-        $req->execute(array($this->nom, $this->prenom, $this->sexe->getId(), $this->classe->getId(), $this->dateEntree, $this->dateSortie, $this->id));
+        $req = $db->prepare("UPDATE eleves SET nom = ?, prenom = ?, idSexe = ?, idClasse = ?, dateEntree = ?, dateSortie = ?, dateNaissance = ? WHERE id = ?");
+        $req->execute(array($this->nom, $this->prenom, $this->sexe->getId(), $this->classe->getId(), $this->dateEntree, $this->dateSortie, $this->dateNais, $this->id));
     }
 
     public function delete($id){
@@ -85,7 +88,7 @@ class eleves
             $laClasse = new classes();
             $laClasse->retrieve($result['idClasse']);
 
-            $monEleve = new eleves($result['id'], $result['nom'], $result['prenom'], $leSexe, $laClasse, $result['dateEntree'], $result['dateSortie']);
+            $monEleve = new eleves($result['id'], $result['nom'], $result['prenom'], $leSexe, $laClasse, $result['dateEntree'], $result['dateSortie'], $result['dateNaissance']);
 
             array_push($mesEleves, $monEleve);
         }
@@ -110,7 +113,7 @@ class eleves
             $laClasse = new classes();
             $laClasse->retrieve($result['idClasse']);
 
-            $monEleve = new eleves($result['id'], $result['nom'], $result['prenom'], $leSexe, $laClasse, $result['dateEntree'], $result['dateSortie']);
+            $monEleve = new eleves($result['id'], $result['nom'], $result['prenom'], $leSexe, $laClasse, $result['dateEntree'], $result['dateSortie'], $result['dateNaissance']);
 
             array_push($mesEleves, $monEleve);
         }
@@ -240,5 +243,21 @@ class eleves
     public function setDateSortie($dateSortie)
     {
         $this->dateSortie = $dateSortie;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDateNais()
+    {
+        return $this->dateNais;
+    }
+
+    /**
+     * @param mixed $nom
+     */
+    public function setDateNais($dateNais)
+    {
+        $this->dateNais = $dateNais;
     }
 }

@@ -21,6 +21,10 @@
 						<label for="prenom">Prénom</label>
 					</div>
 					<div class="form-floating mb-3">
+						<input type="date" class="form-control" name="dateNais" id="dateNais" required>
+						<label for="dateNais">Date de naissance</label>
+					</div>
+					<div class="form-floating mb-3">
 						<select class="form-control" name="sexe" id="sexe" onchange="changeImage(this)" required>
 							<option value="" hidden>Choisir un sexe</option>
 						<?php
