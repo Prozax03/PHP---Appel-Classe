@@ -6,13 +6,13 @@
     <div style="position: relative; top: 50px; left: 50px">
             <form class="row g-3" action="" method="post">
                 <div class="col-md-1" style="width: 3%"><a class="btn btn-default" id="divBtnDate">
-                    <i class="fa-duotone fa-calendar-days fa-2xl"></i></a>
+                    <i class="fa-solid fa-calendar-days fa-2xl"></i></a>
                 </div>
                 <div class="col-md-1" id="formDate">
                     <input type="date" class="form-control" name="da" id="da" value="<?= $dateJour ?>">
                 </div>
                 <div class="col-md-1">
-                    <button class="btn btn-default" type="submit" id="btnChange"><i class="fa-duotone fa-right"></i></button>
+                    <button class="btn btn-default" type="submit" id="btnChange"><i class="fa-solid fa-arrow-right"></i></button>
                 </div>
             </form>
         </div>

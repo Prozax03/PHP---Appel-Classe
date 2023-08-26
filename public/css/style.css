@@ -261,6 +261,7 @@ h7 {
 
 #btnChange{
   margin-left: -10%;
+  margin-top: 4px;
   opacity: 0;
   -webkit-transition: 0.5s;
           transition: 0.5s;

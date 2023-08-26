@@ -11,7 +11,7 @@
         <!-- Bootstrap -->
         <script src="addons/bootstrap/js/bootstrap.bundle.min.js"></script>
         <!-- FontAwesome -->
-        <script src="addons/fontawesome-free/js/all.min.js"></script>
+        <script src="addons/fontawesome-free-6.4.0/js/all.min.js"></script>
         <!-- Datatables & Plugins -->
         <script src="addons/datatables/datatables.min.js"></script>
         
