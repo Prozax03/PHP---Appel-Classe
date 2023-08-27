@@ -30,8 +30,8 @@ ATTENTION, si vous changez les identifiants, il faut également les modifer dans
 
     - model/db.php
 
-      Pour les scripts il faudra rajouter l'option "-p MOTDEPASSE" (seulement si vous avez mis un mot de passe)
-            ex: C:\xampp\mysql\bin\mysqldump.exe -u prozax -p MonSuperMotDePasse -h localhost appelclasse > dump/appelclasse.sql
+Pour les scripts il faudra rajouter l'option "-p MOTDEPASSE" (seulement si vous avez mis un mot de passe)
+ex: C:\xampp\mysql\bin\mysqldump.exe -u prozax -p MonSuperMotDePasse -h localhost appelclasse > dump/appelclasse.sql
     
     - UPDATER/importExport/import.bat
     - UPDATER/importExport/dump.bat
