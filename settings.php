@@ -1,6 +1,5 @@
 <?php
 
-
     //Maintenance
     $monfichier = fopen('controller/settings/maintenance/maintenance.txt', 'r+');
     $ligne = fgets($monfichier);
@@ -9,7 +8,8 @@
     $maintenance = ($ligne == 1)?(true):(false);
 
     $devUser = [
-        "b.rioux", "brioux",
         "prozax", "dev"                          //compte pour dev local
     ];
+
+    
 

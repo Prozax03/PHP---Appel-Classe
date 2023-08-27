@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 06 juil. 2023 à 20:19
+-- Généré le : dim. 27 août 2023 à 00:47
 -- Version du serveur : 10.4.28-MariaDB
 -- Version de PHP : 8.2.4
 
@@ -20,7 +20,7 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `appelclasse`
 --
-CREATE DATABASE IF NOT EXISTS `appelclasse` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+CREATE DATABASE IF NOT EXISTS `appelclasse` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `appelclasse`;
 
 -- --------------------------------------------------------
@@ -54,15 +54,16 @@ CREATE TABLE `classes` (
 -- Déchargement des données de la table `classes`
 --
 
-INSERT INTO `classes` (`id`, `libelle`, `libelleCourt`, `ordre`) VALUES
+INSERT INTO `classes` VALUES
 (1, 'Toute Petite Section', 'TPS', 10),
 (2, 'Petite Section', 'PS', 20),
 (3, 'Moyenne Section', 'MS', 30),
-(4, 'Cours Préparatoire', 'CP', 40),
-(5, 'Cours Elementaire 1', 'CE1', 50),
-(6, 'Cours Elementaire 2', 'CE2', 60),
-(7, 'Cours Moyen 1', 'CM1', 70),
-(8, 'Cours Moyen 2', 'CM2', 80);
+(4, 'Cours Préparatoire', 'CP', 50),
+(5, 'Cours Elementaire 1', 'CE1', 60),
+(6, 'Cours Elementaire 2', 'CE2', 70),
+(7, 'Cours Moyen 1', 'CM1', 80),
+(8, 'Cours Moyen 2', 'CM2', 90),
+(10, 'Grande Section', 'GS', 40);
 
 -- --------------------------------------------------------
 
@@ -96,7 +97,7 @@ CREATE TABLE `libelle` (
 -- Déchargement des données de la table `libelle`
 --
 
-INSERT INTO `libelle` (`id`, `libelle`) VALUES
+INSERT INTO `libelle` VALUES
 (1, 'Vacances de la Toussaint'),
 (2, 'Vacances de Noël'),
 (3, 'Vacances d\'hiver'),
@@ -144,8 +145,8 @@ CREATE TABLE `miseajour` (
 -- Déchargement des données de la table `miseajour`
 --
 
-INSERT INTO `miseajour` (`dt`) VALUES
-('2023-04-03');
+INSERT INTO `miseajour` VALUES
+('2023-07-13');
 
 -- --------------------------------------------------------
 
@@ -162,7 +163,7 @@ CREATE TABLE `periode` (
 -- Déchargement des données de la table `periode`
 --
 
-INSERT INTO `periode` (`id`, `libelle`) VALUES
+INSERT INTO `periode` VALUES
 (1, 'Matin'),
 (2, 'Après-midi');
 
@@ -181,7 +182,7 @@ CREATE TABLE `sexes` (
 -- Déchargement des données de la table `sexes`
 --
 
-INSERT INTO `sexes` (`id`, `libelle`) VALUES
+INSERT INTO `sexes` VALUES
 (1, 'Garçon'),
 (2, 'Fille');
 
@@ -201,7 +202,7 @@ CREATE TABLE `vacances` (
 -- Déchargement des données de la table `vacances`
 --
 
-INSERT INTO `vacances` (`dateDebut`, `dateFin`, `idLibelle`) VALUES
+INSERT INTO `vacances` VALUES
 ('2013-10-19', '2013-11-03', 1),
 ('2013-12-21', '2014-01-05', 2),
 ('2014-03-01', '2014-03-16', 3),
@@ -278,6 +279,23 @@ INSERT INTO `vacances` (`dateDebut`, `dateFin`, `idLibelle`) VALUES
 ('2026-05-14', '2026-05-17', 12),
 ('2026-07-04', '2026-08-31', 5);
 
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `version`
+--
+
+CREATE TABLE `version` (
+  `version` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `version`
+--
+
+INSERT INTO `version` VALUES
+(1);
+
 --
 -- Index pour les tables déchargées
 --
@@ -336,6 +354,12 @@ ALTER TABLE `vacances`
   ADD KEY `idLibelle_FK` (`idLibelle`) USING BTREE;
 
 --
+-- Index pour la table `version`
+--
+ALTER TABLE `version`
+  ADD PRIMARY KEY (`version`);
+
+--
 -- AUTO_INCREMENT pour les tables déchargées
 --
 
@@ -343,7 +367,7 @@ ALTER TABLE `vacances`
 -- AUTO_INCREMENT pour la table `classes`
 --
 ALTER TABLE `classes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT pour la table `eleves`
