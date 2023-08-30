@@ -27,7 +27,13 @@
     $req = $db->prepare('SELECT * FROM miseajour');
     $req->execute();
     $result = $req->fetch();
-    $versionActuelle = (!empty($result['dt']))?($result['dt']):("1000/01/01");
+    $nbLigne = $req->rowCount();
+    
+    if(isset($_GET['force']) && $_GET['force'] == 1){
+        $versionActuelle = "1000/01/01";
+    } else {
+        $versionActuelle = (!empty($result['dt']))?($result['dt']):("1000/01/01");
+    }
 
     $contenu = simplexml_load_file($file_name);
 
@@ -57,8 +63,13 @@
             $req->execute(array($libelle['id'], $libelle));
         }
 
+        $req = $db->prepare('SELECT libelle FROM zonesvacances, settings WHERE idZoneVacance = id;');
+        $req->execute();
+        $result = $req->fetch();
+        $zoneVacance = $result['libelle'];
+
         foreach($listeCalendrier->zone as $zone){
-            if($zone['libelle'][0] == 'A'){
+            if($zone['libelle'][0] == $zoneVacance){
                 foreach($zone->vacances as $vacance){
                     //var_dump($vacance);
                     $dateDebut = str_replace('/', '-', $vacance['debut']);

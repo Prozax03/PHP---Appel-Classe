@@ -12,26 +12,33 @@
             "editappel" => "appel/",
 
         //Classes
-        "addclasses" => "classes/",
-        "editclasses" => "classes/",
-        "delclasses" => "classes/",
-        "allclasses" => "classes/",
-        "formaddclasses" => "classes/",
-        "formeditclasses" => "classes/",
+            "addclasses" => "classes/",
+            "editclasses" => "classes/",
+            "delclasses" => "classes/",
+            "allclasses" => "classes/",
+            "formaddclasses" => "classes/",
+            "formeditclasses" => "classes/",
 
         //Eleves
-        "addeleves" => "eleves/",
-        "editeleves" => "eleves/",
-        "deleleves" => "eleves/",
-        "alleleves" => "eleves/",
-        "formaddeleves" => "eleves/",
-        "formediteleves" => "eleves/",
+            "addeleves" => "eleves/",
+            "editeleves" => "eleves/",
+            "deleleves" => "eleves/",
+            "alleleves" => "eleves/",
+            "formaddeleves" => "eleves/",
+            "formediteleves" => "eleves/",
 
         //VACANCES
-        "allvacances" => "vacances/",
-        "importvacances" => "vacances/",
-            //Error
-                "404" => "error/",                                       //Page Erreur 404
+            "allvacances" => "vacances/",
+            "importvacances" => "vacances/",
+
+        //Error
+            "404" => "error/",                                       //Page Erreur 404
+
+        //Settings
+            "settings" => "settings/",
+            "editzonevacance" => "settings/",
+            "savimp" => "Import/",
+
         //FIN DU ROOTER
             "" => ""
     ];

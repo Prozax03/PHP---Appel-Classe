@@ -2,7 +2,7 @@
     require_once "view/header.php";
 ?>
 	<br>
-	<h1 class="center">Gestion des vacances scolaires</h1>
+	<h1 class="center">Gestion des vacances scolaires - Zone <?= $ZoneActuelle ?></h1>
 	<h7 class="center">Dernière version du fichier : <I style="color: red;"><?= $versionActuelle ?></I></h7>
 	<br>
 	<div style='text-align: center'><a href='index.php?action=importvacances' class="btn btn-vacance" title="Importer depuis le site de l'éducation"><i class="fa-solid fa-download fa-beat-fade"></i></a></div>

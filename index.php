@@ -29,6 +29,6 @@
         }
     } else {
         unlink("install.txt");
-        header('Location: UPDATER/importExport/import.php');
+        header('Location: Import/script/import.php');
     }
 ?>

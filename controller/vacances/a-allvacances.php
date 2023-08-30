@@ -16,6 +16,11 @@
 	}
 
 	//GET DERNIERE MAJ FICHIER
+	$req = $db->prepare("SELECT libelle FROM settings, zonesvacances WHERE id = idZoneVacance");
+	$req->execute();
+	$result = $req->fetch();
+	$ZoneActuelle = $result['libelle'];
+	//GET DERNIERE MAJ FICHIER
 	$req = $db->prepare("SELECT * FROM miseajour");
 	$req->execute();
 	$result = $req->fetch();

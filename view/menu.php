@@ -1,7 +1,21 @@
 
+<?php
+    if($action != "home"){
+?>
+
+<div style="position: relative; top: 50px; left: 50px">
+    <div class="col-md-1" style="width: 3%" onclick="location.href='index.php';">
+        <a class="btn btn-default" id="divBtnDate"><i class="fa-solid fa-home fa-2xl"></i></a>
+    </div>
+</div>
+
+<?php
+    }
+?>
 
 <div class="floating-container">
-    <div class="floating-button" onmouseover="changeIcone(this, 'in')" onmouseout="changeIcone(this, 'out')" onclick="location.href='index.php';" title="Home">
+    <!--<div class="floating-button" onmouseover="changeIcone(this, 'in')" onmouseout="changeIcone(this, 'out')" onclick="location.href='index.php';" title="Home">-->
+    <div class="floating-button" onclick="location.href='index.php?action=settings';" title="Paramètres">
         <span id="param">
             <i class="fa-solid fa-gear"></i>
         </span>

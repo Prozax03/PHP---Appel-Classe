@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : dim. 27 août 2023 à 00:47
+-- Généré le : mar. 29 août 2023 à 23:51
 -- Version du serveur : 10.4.28-MariaDB
 -- Version de PHP : 8.2.4
 
@@ -170,6 +170,25 @@ INSERT INTO `periode` VALUES
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `settings`
+--
+
+CREATE TABLE `settings` (
+  `numVersion` float NOT NULL,
+  `version` varchar(15) NOT NULL,
+  `idZoneVacance` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `settings`
+--
+
+INSERT INTO `settings` VALUES
+(1, 'Personnelle', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `sexes`
 --
 
@@ -282,19 +301,33 @@ INSERT INTO `vacances` VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `version`
+-- Structure de la table `zonesvacances`
 --
 
-CREATE TABLE `version` (
-  `version` float NOT NULL
+CREATE TABLE `zonesvacances` (
+  `id` int(11) NOT NULL,
+  `libelle` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `version`
+-- Déchargement des données de la table `zonesvacances`
 --
 
-INSERT INTO `version` VALUES
-(1);
+INSERT INTO `zonesvacances` VALUES
+(1, 'A'),
+(2, 'B'),
+(3, 'C'),
+(4, 'Corse'),
+(5, 'Corse'),
+(6, 'Guadeloupe'),
+(7, 'Martinique'),
+(8, 'Guyane'),
+(9, 'Réunion'),
+(10, 'Mayotte'),
+(11, 'Calédonie'),
+(12, 'Polynésie'),
+(13, 'StPierreMiquelon'),
+(14, 'WallisFutuna');
 
 --
 -- Index pour les tables déchargées
@@ -341,6 +374,13 @@ ALTER TABLE `periode`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `settings`
+--
+ALTER TABLE `settings`
+  ADD PRIMARY KEY (`numVersion`),
+  ADD KEY `idZoneVacance` (`idZoneVacance`);
+
+--
 -- Index pour la table `sexes`
 --
 ALTER TABLE `sexes`
@@ -354,10 +394,10 @@ ALTER TABLE `vacances`
   ADD KEY `idLibelle_FK` (`idLibelle`) USING BTREE;
 
 --
--- Index pour la table `version`
+-- Index pour la table `zonesvacances`
 --
-ALTER TABLE `version`
-  ADD PRIMARY KEY (`version`);
+ALTER TABLE `zonesvacances`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT pour les tables déchargées
@@ -388,6 +428,12 @@ ALTER TABLE `sexes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT pour la table `zonesvacances`
+--
+ALTER TABLE `zonesvacances`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
 -- Contraintes pour les tables déchargées
 --
 
@@ -404,6 +450,12 @@ ALTER TABLE `appel`
 ALTER TABLE `eleves`
   ADD CONSTRAINT `eleves_ibfk_1` FOREIGN KEY (`idClasse`) REFERENCES `classes` (`id`),
   ADD CONSTRAINT `eleves_ibfk_2` FOREIGN KEY (`idSexe`) REFERENCES `sexes` (`id`);
+
+--
+-- Contraintes pour la table `settings`
+--
+ALTER TABLE `settings`
+  ADD CONSTRAINT `settings_ibfk_1` FOREIGN KEY (`idZoneVacance`) REFERENCES `zonesvacances` (`id`);
 
 --
 -- Contraintes pour la table `vacances`
