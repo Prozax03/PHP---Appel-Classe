@@ -7,10 +7,14 @@ Table of contents:
 
 ## Introduction
 
-VERSION 1 utilisateur
 Appel Classe est une application web permettant de faire l'appel dans une école.
 
-VERSION Etablissement (Plusieurs utilisateurs) -- EN COURS DE DEV
+VERSION P - Personnel
+Cette version suffit pour un utilisateur qui a installé un serveur web sur son poste de travail.
+
+VERSION E - Etablissement (Plusieurs utilisateurs) -- EN COURS DE DEV
+Cette version nécessite un serveur afin que vous utilisateurs puissent se connecter dessus. 
+Au moins un administrateur devra être défini.
 
 ## Installation
 
