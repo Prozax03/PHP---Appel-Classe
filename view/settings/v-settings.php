@@ -34,10 +34,15 @@
 					</div>
 					<br>
 					<div class="center">
-						<a href="javascript:history.go(-1)" class='btn btn-danger'>Retour</a>
 						<input class='btn btn-classe' type='submit' value='Mettre à jour'>
 					</div>
 				</form>
+				<br>
+				<br>
+				<br>
+				<div class="center">
+					<a href="index.php?action=savimp" class='btn btn-eleve' title="Base de données - Import / Export"><i class="fa-solid fa-database"></i> Base de données - Import / Export</a>
+				</div>
 			</div>
 		</div>
 	</div>
