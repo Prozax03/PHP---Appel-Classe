@@ -13,7 +13,7 @@
 			<div class="col-md-6">
 				<br>
 				<div class="center">
-					<a href="Import/dump.php" class="btn btn-eleve">Telecharger la sauvegarde</a>
+					<a href="Import/script/export.php" class="btn btn-eleve">Telecharger la sauvegarde</a>
 				</div>
 				<br><br>
 				<h5 class="center h5Cursive">Import</h5>
