@@ -5,7 +5,7 @@
     $nom_dossier_parent = explode("/", $_SERVER["PHP_SELF"]);
     $nom_dossier_parent = $nom_dossier_parent[count($nom_dossier_parent) - 2]."/";
 
-    $req = $db->prepare("SELECT e.id, e.nom, e.prenom, idSexe, dateNaissance, CONCAT(c.libelleCourt, ' - ', c.libelle) as 'classe', dateEntree, dateSortie FROM eleves e, sexes s, classes c WHERE e.idClasse = c.id AND e.idSexe = s.id AND DATE(NOW()) <= e.dateSortie ORDER BY c.ordre, e.nom, e.prenom;");
+    $req = $db->prepare("SELECT e.id, e.nom, e.prenom, idSexe, dateNaissance, c.libelleCourt as 'classe', dateEntree, dateSortie FROM eleves e, sexes s, classes c WHERE e.idClasse = c.id AND e.idSexe = s.id AND DATE(NOW()) <= e.dateSortie ORDER BY c.ordre, e.nom, e.prenom;");
     $req->execute(array());
 
     $data = array();
