@@ -4,7 +4,14 @@
 	<br>
 	<h1 class="center">Gestion des élèves</h1>
 	<br>
-	<div style='text-align: center'><a href='index.php?action=formaddeleves' class="btn btn-eleve">Ajouter un(e) élève</a></div>
+	<div style='text-align: center'>
+		<a href='index.php?action=formaddeleves' class="btn btn-eleve">Ajouter un(e) élève</a>
+<?php
+	if (!isset($_GET['l']) || $_GET['l'] != 'all'){
+		echo "<a href='index.php?action=alleleves&l=all' class='btn btn-eleve'>Tous les élèves</a>";
+	}
+?>	
+	</div>
 	<br>
 	<div class="row g-3 justify-content-md-center">
         <div class="col-md-8">

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 29 août 2023 à 23:51
+-- Généré le : lun. 04 sep. 2023 à 19:32
 -- Version du serveur : 10.4.28-MariaDB
 -- Version de PHP : 8.2.4
 
@@ -184,7 +184,7 @@ CREATE TABLE `settings` (
 --
 
 INSERT INTO `settings` VALUES
-(1, 'Personnelle', 1);
+(1.01, 'Personnelle', 1);
 
 -- --------------------------------------------------------
 

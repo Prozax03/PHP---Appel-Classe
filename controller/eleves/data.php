@@ -5,7 +5,11 @@
     $nom_dossier_parent = explode("/", $_SERVER["PHP_SELF"]);
     $nom_dossier_parent = $nom_dossier_parent[count($nom_dossier_parent) - 2]."/";
 
-    $req = $db->prepare("SELECT e.id, e.nom, e.prenom, idSexe, dateNaissance, c.libelleCourt as 'classe', dateEntree, dateSortie FROM eleves e, sexes s, classes c WHERE e.idClasse = c.id AND e.idSexe = s.id AND DATE(NOW()) <= e.dateSortie ORDER BY c.ordre, e.nom, e.prenom;");
+    if (isset($_GET['l']) && $_GET['l'] == 'all'){
+        $req = $db->prepare("SELECT e.id, e.nom, e.prenom, idSexe, dateNaissance, c.libelleCourt as 'classe', dateEntree, dateSortie FROM eleves e, sexes s, classes c WHERE e.idClasse = c.id AND e.idSexe = s.id ORDER BY c.ordre, e.nom, e.prenom;");
+    } else {
+        $req = $db->prepare("SELECT e.id, e.nom, e.prenom, idSexe, dateNaissance, c.libelleCourt as 'classe', dateEntree, dateSortie FROM eleves e, sexes s, classes c WHERE e.idClasse = c.id AND e.idSexe = s.id AND DATE(NOW()) <= e.dateSortie ORDER BY c.ordre, e.nom, e.prenom;");
+    }
     $req->execute(array());
 
     $data = array();

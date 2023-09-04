@@ -27,9 +27,10 @@
 
     if (!$monAppel->getIsVacances($dateJour)){
         if (!in_array($dateJour, $TabJourFerie)){
-            if (date_format($dateTimeJour, 'w') != 6 && date_format($dateTimeJour, 'w') != 0 && date_format($dateTimeJour, 'w') != 3){ //Si pas un samed, ni un dimanche
+            if (date_format($dateTimeJour, 'w') != 6 && date_format($dateTimeJour, 'w') != 0 && date_format($dateTimeJour, 'w') != 3){ //Si pas un samedi, ni un dimanche, ni mercredi
                 if (!$monAppel->appelFait($dateJour)){
                     $mesEleves = $monEleve->findAllByJour($dateJour);
+                    $monAppel->deleteByDate($dateJour);
 
                     foreach ($mesEleves as $eleve){
                         $monAppel->creationListe($dateJour, $eleve);

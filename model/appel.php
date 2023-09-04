@@ -65,6 +65,13 @@ class appel
         $req->execute(array($dateAppel, $periode->getId(), $eleve->getId()));
     }
 
+    public function deleteByDate($dateAppel){
+        require "db.php";
+
+        $req = $db->prepare("DELETE FROM appel WHERE dateAppel = ?");
+        $req->execute(array($dateAppel));
+    }
+
     public function findAll(){
         require "db.php";
 
@@ -142,7 +149,7 @@ class appel
     public function appelFait($date){
         require "db.php";
 
-        $req = $db->prepare("SELECT COUNT(*) as nb FROM appel WHERE dateAppel = ?");
+        $req = $db->prepare("SELECT COUNT(*) as nb FROM appel WHERE dateAppel = ? AND estPresent != 2");
         $req->execute(array($date));
         $result = $req->fetch();
 
