@@ -17,7 +17,7 @@
 				</div>
 				<br><br>
 				<h5 class="center h5Cursive">Import</h5>
-				<form action="Import/import.php" method="post" enctype="multipart/form-data">
+				<form action="Import/script/import.php" method="post" enctype="multipart/form-data">
 					<div class="mb-3">
 						<label for="formFile" class="form-label">Fichier BDD à importer (appelclasse.sql)</label>
 						<input class="form-control" type="file" id="formFile" name="formFile" required>
