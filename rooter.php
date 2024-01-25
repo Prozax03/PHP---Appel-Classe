@@ -10,6 +10,7 @@
 
         //Appel
             "editappel" => "appel/",
+            "stats" => "appel/",
 
         //Classes
             "addclasses" => "classes/",

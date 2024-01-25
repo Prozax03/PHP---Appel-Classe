@@ -190,6 +190,76 @@ class appel
         }
     }
 
+    public function getStatGlobal($dateDebut, $dateFin){
+        require "db.php";
+
+        $req = $db->prepare("SELECT COUNT(*) as 'nb' FROM appel a, periode p, eleves e WHERE a.idPeriode = p.id AND a.idEleve = e.id AND estPresent = 0 AND dateAppel BETWEEN ? AND ?");
+        $req->execute(array($dateDebut, $dateFin));
+        $result = $req->fetch();
+
+        return $result['nb'];
+    }
+
+    public function getStatGlobalParEleve($dateDebut, $dateFin){
+        require "db.php";
+
+        $req = $db->prepare("SELECT idEleve, CONCAT(e.nom, ' ', e.prenom) as 'eleve', COUNT(*) as 'total' FROM appel a, periode p , eleves e WHERE a.idPeriode = p.id AND a.idEleve = e.id AND estPresent = 0 AND dateAppel BETWEEN ? AND ? GROUP BY idEleve;");
+        $req->execute(array($dateDebut, $dateFin));
+        $result = $req->fetchAll();
+
+        return $result;
+    }
+
+    public function getStatGlobalParMois($dateDebut, $dateFin){
+        require "db.php";
+
+        $req = $db->prepare("SELECT SUBSTR(a.dateAppel, 1, 7) as 'mois', COUNT(*) as 'nb' FROM appel a, periode p , eleves e WHERE a.idPeriode = p.id AND a.idEleve = e.id AND estPresent = 0 AND dateAppel BETWEEN ? AND ? GROUP BY Mois;");
+        $req->execute(array($dateDebut, $dateFin));
+        $result = $req->fetchAll();
+
+        return $result;
+    }
+
+    public function getStatGlobalParMoisNew($dateDebut, $dateFin){
+        require "db.php";
+
+        $req = $db->prepare("SELECT CONCAT('M', SUBSTR(a.dateAppel, 6, 2)) as 'mois', COUNT(*) as 'nb' FROM appel a, periode p , eleves e WHERE a.idPeriode = p.id AND a.idEleve = e.id AND estPresent = 0 AND dateAppel BETWEEN ? AND ? GROUP BY Mois;");
+        $req->execute(array($dateDebut, $dateFin));
+        $result = $req->fetchAll();
+
+        return $result;
+    }
+
+    public function getStatGlobalParEleveParMois($dateDebut, $dateFin){
+        require "db.php";
+
+        $req = $db->prepare("SELECT idEleve, CONCAT(e.nom, ' ', e.prenom) as 'eleve', SUBSTR(a.dateAppel, 1, 7) as 'Mois', COUNT(*) as 'Nombre absences' FROM appel a, periode p , eleves e WHERE a.idPeriode = p.id AND a.idEleve = e.id AND estPresent = 0 AND dateAppel BETWEEN ? AND ? GROUP BY Mois, idEleve;");
+        $req->execute(array($dateDebut, $dateFin));
+        $result = $req->fetchAll();
+
+        return $result;
+    }
+
+    public function getStatGlobalParEleveParMoisFromId($dateDebut, $dateFin, $eleve){
+        require "db.php";
+
+        $req = $db->prepare("SELECT idEleve, SUBSTR(a.dateAppel, 1, 7) as 'Mois', CONCAT('M', SUBSTR(a.dateAppel, 6, 2)) as 'MoisCourt', COUNT(*) as 'Nombre absences' FROM appel a, periode p , eleves e WHERE a.idPeriode = p.id AND a.idEleve = e.id AND estPresent = 0 AND dateAppel BETWEEN ? AND ? and idEleve = ? GROUP BY Mois;");
+        $req->execute(array($dateDebut, $dateFin, $eleve));
+        $result = $req->fetchAll();
+
+        return $result;
+    }
+
+    public function getAllElevesFrom2Date($dateDebut, $dateFin){
+        require "db.php";
+
+        $req = $db->prepare("SELECT DISTINCT idEleve, CONCAT(e.nom, ' ', e.prenom) as 'NOMPRENOM' FROM appel a, eleves e WHERE a.idEleve = e.id AND dateAppel BETWEEN ? AND ?");
+        $req->execute(array($dateDebut, $dateFin));
+        $result = $req->fetchAll();
+
+        return $result;
+    }
+
     /**
      * @return mixed
      */

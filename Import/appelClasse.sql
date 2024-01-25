@@ -184,7 +184,7 @@ CREATE TABLE `settings` (
 --
 
 INSERT INTO `settings` VALUES
-(1.01, 'Personnelle', 1);
+(1.02, 'Personnelle', 1);
 
 -- --------------------------------------------------------
 
